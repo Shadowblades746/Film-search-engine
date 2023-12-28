@@ -1,5 +1,5 @@
 import atexit
-
+import pyperclip
 import concurrent.futures
 
 from selenium import webdriver
@@ -730,14 +730,27 @@ def search_using_image_tags(search_query, website_url, search_box_xpath):
     driver.implicitly_wait(5)
 
     try:
+        # try searching using image tag
         film_elements = driver.find_elements(By.TAG_NAME, "img")
 
         for film_element in film_elements:
             if search_query.lower() in film_element.get_attribute("alt").lower():
+                # Click on the link element
                 film_element.click()
+
+                # Grab the current URL from the address bar
                 film_url = driver.current_url
+
+                # Print the URL to the console
                 print(f"URL for the film: {film_url}")
+
+                # copy the URL to the clipboard
+                pyperclip.copy(film_url)
+
+                # Register a function to close the browser when the program exits
                 atexit.register(driver.quit)
+
+                # This line ensures that the program does not wait for the browser to close
                 return driver
 
     except Exception as e:
@@ -786,6 +799,9 @@ def search_using_links(search_query, website_url, search_box_xpath):
                 # Print the URL to the console
                 print(f"URL for the film: {film_url}")
 
+                # copy the URL to the clipboard
+                pyperclip.copy(film_url)
+
                 # Register a function to close the browser when the program exits
                 atexit.register(driver.quit)
 
@@ -806,6 +822,9 @@ def search_using_links(search_query, website_url, search_box_xpath):
 
             # Print the URL to the console
             print(f"URL for the film: {film_url}")
+
+            # copy the URL to the clipboard
+            pyperclip.copy(film_url)
 
             # Register a function to close the browser when the program exits
             atexit.register(driver.quit)
@@ -847,6 +866,9 @@ def search_using_javascript(search_query, website_url, search_box_xpath):
             # Print the URL to the console
             print(f"URL for the film: {film_url}")
 
+            # copy the URL to the clipboard
+            pyperclip.copy(film_url)
+
             # Register a function to close the browser when the program exits
             atexit.register(driver.quit)
 
@@ -869,6 +891,9 @@ def search_using_javascript(search_query, website_url, search_box_xpath):
 
                 # Print the URL to the console
                 print(f"URL for the film: {film_url}")
+
+                # copy the URL to the clipboard
+                pyperclip.copy(film_url)
 
                 # Register a function to close the browser when the program exits
                 atexit.register(driver.quit)
@@ -904,6 +929,9 @@ def search():
     # If no film is found, print the current URL
     current_url = driver.current_url
     print(f"Website URL: {current_url}")
+
+    # copy the URL to the clipboard
+    pyperclip.copy(current_url)
 
     # Register a function to close the browser when the program exits
     atexit.register(driver.quit)
