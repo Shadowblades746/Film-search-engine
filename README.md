@@ -4,7 +4,7 @@
 
 ###### I found that when looking for a film, I often couldn't find what I was looking for without being bombarded by pop up ads and dodgy websites, so I decided to do something about it.
 
-###### I went out and created a program that surfs through 12 vetted websites and looks for a film of your choice. It then outputs whether your film was found on each website, and gives you the option to select your website of choice. It then prints and copies to your clipboard, a link to the film and a link to the website.
+###### I went out and created a program that surfs through 12 vetted websites and looks for a film of your choice. It then outputs whether your film was found on each website, and gives you the option to select your website of choice. It then outputs, and copies to your clipboard, a link to the film and a link to the website.
 
 ###### its a bunch of spaghetti code, and I hope to add a GUI in the future but for now it does the job and I'm currently procrastinating revision for my mocks so its not like I have time anyway.
 
